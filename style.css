@@ -1,0 +1,105 @@
+/* Сброс отступов и настройка на весь экран */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: black; /* Фон на случай, если фото не загрузятся */
+}
+
+/* Галерея занимает всю ширину */
+.gallery {
+    display: flex;
+    flex-direction: column; /* Шесть фото вертикально (одно под другим) */
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Контейнер для каждого фото */
+.photo-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Сами фотографии */
+.photo {
+    display: block;
+    width: 100%;        /* Растягиваем на всю ширину экрана */
+    height: auto;       /* Высота сохраняет пропорции */
+    object-fit: contain; /* Вписываем без обрезки */
+    background-color: #111; /* Фон для фото с прозрачностью (PNG) */
+}
+
+/* Контейнер для пятого фото с таймером */
+.timer-container {
+    position: relative;
+    width: 100%;
+}
+
+/* Таймер поверх фото */
+.timer-overlay {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-size: 8vw;           /* Немного уменьшил, чтобы поместились подписи */
+    font-weight: 100;          /* Толщина 100 (самое тонкое, что есть) */
+    font-family: 'Didot', 'Bodoni', 'Georgia', 'Times New Roman', serif;
+    z-index: 10;
+    pointer-events: none;
+    background: transparent;
+    text-align: center;
+    text-shadow: none;
+    -webkit-font-smoothing: antialiased; /* Максимальное сглаживание */
+    -moz-osx-font-smoothing: grayscale;
+    opacity: 0.7;
+    display: flex;
+    gap: 8vw;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.time-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px; /* Увеличена минимальная ширина */
+    padding: 0 2vw;  /* Добавлены внутренние отступы по бокам */
+}
+/* Стиль для цифр */
+.time-number {
+    font-size: 1em;
+    line-height: 1.2;
+    font-weight: 100;
+}
+
+/* Стиль для подписи (д, ч, м, с) */
+.time-label {
+    font-size: 0.35em;        /* Маленький текст под цифрами */
+    letter-spacing: 0.2em;     /* Разреженные буквы */
+    text-transform: lowercase;
+    margin-top: 0.3em;
+    opacity: 0.8;
+    font-weight: 100;
+}
+
+/* Адаптация для очень маленьких экранов */
+@media (max-width: 400px) {
+    .timer-overlay {
+        font-size: 10vw;
+        gap: 1vw;
+    }
+    
+    .time-unit {
+        min-width: 40px;
+    }
+}
