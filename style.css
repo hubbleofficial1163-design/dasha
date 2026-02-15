@@ -45,10 +45,10 @@ html, body {
 /* Таймер поверх фото */
 .timer-overlay {
     position: absolute;
-    top: 75%;
+    top: 64%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: black;
+    color: #3c373b;
     font-size: 8vw;           /* Немного уменьшил, чтобы поместились подписи */
     font-weight: 100;          /* Толщина 100 (самое тонкое, что есть) */
     font-family: 'Didot', 'Bodoni', 'Georgia', 'Times New Roman', serif;
@@ -75,11 +75,13 @@ html, body {
     min-width: 80px; /* Увеличена минимальная ширина */
     padding: 0 2vw;  /* Добавлены внутренние отступы по бокам */
 }
+
 /* Стиль для цифр */
 .time-number {
     font-size: 1em;
     line-height: 1.2;
     font-weight: 100;
+    color: #3c373b;
 }
 
 /* Стиль для подписи (д, ч, м, с) */
@@ -90,6 +92,7 @@ html, body {
     margin-top: 0.3em;
     opacity: 0.8;
     font-weight: 100;
+    color: #3c373b;
 }
 
 /* Адаптация для очень маленьких экранов */
@@ -101,5 +104,282 @@ html, body {
     
     .time-unit {
         min-width: 40px;
+    }
+}
+
+/* Стили для секции ЛОКАЦИЯ */
+.location-section {
+    width: 100%;
+    background-color: white;
+    padding: 50px 25px 70px; /* Увеличен нижний отступ для кнопки */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-sizing: border-box;
+    font-family: 'Didot', 'Bodoni', 'Georgia', 'Times New Roman', serif;
+}
+
+/* Контейнер для фото-заголовка */
+.location-title-photo {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+/* Само фото заголовка */
+.location-title-img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+.location-address {
+    font-size: 24px;
+    font-weight: 250;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    color: #3c373b;
+    text-align: left;
+}
+
+.location-time {
+    font-size: 22px;
+    font-weight: 200;
+    color: #3c373b;
+    opacity: 0.6;
+    margin-bottom: 35px;
+    text-align: left;
+}
+
+/* Контейнер для фото с кнопкой */
+.location-photo-wrapper {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.location-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+    background-color: white;
+}
+
+/* Кнопка-круг "как добраться" */
+.location-button {
+    position: absolute;
+    bottom: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110px;
+    height: 110px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: flex-start; /* Текст прижимается к верху */
+    justify-content: center;
+    text-align: center;
+    color: #3c373b;
+    font-family: 'Didot', 'Bodoni', 'Georgia', 'Times New Roman', serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: lowercase;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #3c373b;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    z-index: 20;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+    line-height: 1.3;
+    padding: 15px 10px 0; /* Увеличин верхний отступ для поднятия текста */
+}
+
+/* Эффект при нажатии/наведении */
+.location-button:hover,
+.location-button:active {
+    transform: translateX(-50%) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    background-color: #f8f8f8;
+}
+
+/* Текст в две строки */
+.location-button span {
+    display: block;
+}
+
+/* Стили для секции ТАЙМИНГ */
+.timing-section {
+    width: 100%;
+    background-image: url('44.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    font-family: 'Didot', 'Bodoni', 'Georgia', 'Times New Roman', serif;
+    position: relative;
+}
+
+/* Затемнение фона для лучшей читаемости текста */
+.timing-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0); /* Белое полупрозрачное затемнение */
+    z-index: 1;
+}
+
+/* Чтобы контент был поверх затемнения */
+.timing-section > * {
+    position: relative;
+    z-index: 2;
+}
+
+.timing-title {
+    font-size: 42px;
+    font-weight: 300;
+    letter-spacing: 6px;
+    margin-bottom: 50px;
+    color: #3c373b;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.timing-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.timing-item:last-child {
+    margin-bottom: 0;
+}
+
+.timing-icon {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    background-color: transparent;
+}
+
+.timing-text {
+    font-size: 24px;
+    font-weight: 250;
+    color: #3c373b;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* Адаптация для маленьких экранов */
+@media (max-width: 600px) {
+    .location-section {
+        padding: 40px 20px 65px;
+    }
+    
+    .location-title-photo {
+        margin-bottom: 30px;
+    }
+    
+    .location-address {
+        font-size: 20px;
+    }
+    
+    .location-time {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+    
+    .location-button {
+        width: 100px;
+        height: 100px;
+        font-size: 15px;
+        bottom: -40px;
+        padding: 12px 8px 0;
+    }
+    
+    /* Тайминг секция адаптация */
+    .timing-section {
+        padding: 40px 15px;
+    }
+    
+    .timing-title {
+        font-size: 36px;
+        letter-spacing: 4px;
+        margin-bottom: 40px;
+    }
+    
+    .timing-icon {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .timing-text {
+        font-size: 20px;
+    }
+    
+    .timing-item {
+        margin-bottom: 35px;
+    }
+}
+
+@media (max-width: 400px) {
+    .location-section {
+        padding: 30px 15px 55px;
+    }
+    
+    .location-button {
+        width: 90px;
+        height: 90px;
+        font-size: 13px;
+        bottom: -35px;
+        padding: 10px 5px 0;
+    }
+    
+    /* Тайминг секция адаптация */
+    .timing-section {
+        padding: 30px 10px;
+    }
+    
+    .timing-title {
+        font-size: 30px;
+        letter-spacing: 3px;
+        margin-bottom: 30px;
+    }
+    
+    .timing-icon {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .timing-text {
+        font-size: 18px;
+    }
+    
+    .timing-item {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 320px) {
+    .location-button {
+        width: 80px;
+        height: 80px;
+        font-size: 12px;
+        bottom: -30px;
+        padding: 8px 5px 0;
     }
 }
