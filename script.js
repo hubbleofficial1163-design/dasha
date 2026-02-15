@@ -65,4 +65,4 @@ function startTimer() {
     
     updateTimer();
     setInterval(updateTimer, 1000);
-}
+}   
